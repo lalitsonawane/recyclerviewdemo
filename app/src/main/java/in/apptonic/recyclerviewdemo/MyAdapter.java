@@ -1,8 +1,6 @@
 package in.apptonic.recyclerviewdemo;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.provider.ContactsContract;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,7 +19,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 
 import static android.content.ContentValues.TAG;
 

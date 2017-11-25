@@ -74,38 +74,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    myRef.addChildEventListener(new ChildEventListener() {
-        @Override
-        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-            addNewTitle(dataSnapshot);
-        }
+        myRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                addNewTitle(dataSnapshot);
+            }
 
-        @Override
-        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-            addNewTitle(dataSnapshot);
-        }
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                addNewTitle(dataSnapshot);
+            }
 
-        @Override
-        public void onChildRemoved(DataSnapshot dataSnapshot) {
-            removeTitle(dataSnapshot);
-        }
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                removeTitle(dataSnapshot);
+            }
 
-        @Override
-        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
-        }
+            }
 
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
-        }
-    });
+            }
+        });
 
     }
 
     private void addNewTitle(DataSnapshot dataSnapshot) {
 
-        for (DataSnapshot singeleSnapshot : dataSnapshot.getChildren()){
+        for (DataSnapshot singeleSnapshot : dataSnapshot.getChildren()) {
 
             String addTitle = singeleSnapshot.getValue(String.class);
             allEssay.add(new Essay(addTitle));
@@ -117,11 +117,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void removeTitle(DataSnapshot dataSnapshot) {
 
-        for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+        for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
             String removeTitle = singleSnapshot.getValue(String.class);
-            for (int i = 0; i < allEssay.size(); i++){
+            for (int i = 0; i < allEssay.size(); i++) {
 
-                if (allEssay.get(i).getSubject().equals(removeTitle)){
+                if (allEssay.get(i).getSubject().equals(removeTitle)) {
                     allEssay.remove(i);
                 }
             }
