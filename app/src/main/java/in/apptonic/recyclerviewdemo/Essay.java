@@ -13,8 +13,6 @@ public class Essay {
         this.subject = subject;
     }
 
-
-
     public String getSubject() {
         return subject;
     }

@@ -100,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     private void addNewTitle(DataSnapshot dataSnapshot) {
@@ -111,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
             allEssay.add(new Essay(addTitle));
             adapter = new MyAdapter(MainActivity.this, allEssay);
             recyclerView.setAdapter(adapter);
-
         }
     }
 
@@ -129,8 +127,6 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Task tile" + removeTitle);
             adapter.notifyDataSetChanged();
             recyclerView.setAdapter(adapter);
-
-
         }
     }
 

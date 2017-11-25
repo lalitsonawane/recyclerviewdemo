@@ -9,14 +9,19 @@
 
     <EditText
         android:id="@+id/addTitle"
-        style="@android:style/Widget.Material.EditText"
+        style="@android:style/Widget.Holo.Light.EditText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/holo_blue_dark" />
 
     <Button
         android:id="@+id/submit"
+        style="@android:style/Widget.Material.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:elevation="2dp"
         android:text="Submit" />
 
     <android.support.v7.widget.RecyclerView
