@@ -82,12 +82,12 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+            addNewTitle(dataSnapshot);
         }
 
         @Override
         public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+            removeTitle(dataSnapshot);
         }
 
         @Override
@@ -107,10 +107,29 @@ public class MainActivity extends AppCompatActivity {
 
         for (DataSnapshot singeleSnapshot : dataSnapshot.getChildren()){
 
-            String addTitle = singeleSnapshot.getValue(String.class).toString();
+            String addTitle = singeleSnapshot.getValue(String.class);
             allEssay.add(new Essay(addTitle));
             adapter = new MyAdapter(MainActivity.this, allEssay);
             recyclerView.setAdapter(adapter);
+
+        }
+    }
+
+    private void removeTitle(DataSnapshot dataSnapshot) {
+
+        for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+            String removeTitle = singleSnapshot.getValue(String.class);
+            for (int i = 0; i < allEssay.size(); i++){
+
+                if (allEssay.get(i).getSubject().equals(removeTitle)){
+                    allEssay.remove(i);
+                }
+            }
+
+            Log.d(TAG, "Task tile" + removeTitle);
+            adapter.notifyDataSetChanged();
+            recyclerView.setAdapter(adapter);
+
 
         }
     }
